@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos - Click Contenidos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<header class="header">
+
+<div class="logo">
+<a href="/index.html">
+<img src="/assets/logo.png" alt="Click Contenidos">
+</a>
+</div>
+
+<nav>
+
+<a href="/index.html">Inicio</a>
+
+<a href="/eventos.html">Eventos</a>
+
+<!-- <a href="/index.html">Nosotros</a>  -->
+
+<a href="/index.html#contacto">Contacto</a>
+
+</nav>
+
+</header>
+<body>
+
+    <h1>Eventos Disponibles</h1>
+
+    <section class="eventos-grid">
+
+        <!-- Evento 1 -->
+        <div class="evento-card" data-logo="../assets/escudos/regatas.png"> 
+            <h3>C. REGATAS C. vs MACABI</h3>
+            <p>97 Fotos Disponibles</p>
+            <a href="galeria.html?evento=regatas-2026&partido=regatas-vs-macabi" class="btn-evento">
+                Ver Fotos
+            </a>
+        </div>
+        <!-- Evento 2 -->
+        <div class="evento-card" data-logo="../assets/escudos/belgrano.png">
+    <h3>C.A. GRAL. BELGRANO vs LOS PIRATITAS</h3>
+    <p>229 Fotos Disponibles</p>
+    <a href="galeria.html?evento=belgrano-2026&partido=belgrano-vs-los-piratitas" class="btn-evento">
+        Ver Fotos
+    </a>
+</div>
+ <!-- Evento 3 -->
+        <div class="evento-card" data-logo="../assets/escudos/regatas.png"> 
+            <h3>C. REGATAS C. vs EL QUILLA</h3>
+            <p>117 Fotos Disponibles</p>
+            <a href="galeria.html?evento=regatas-2026&partido=regatas-vs-el-quilla" class="btn-evento">
+                Ver Fotos
+            </a>
+        </div>
+
+<script>
+document.querySelectorAll(".evento-card").forEach(card => {
+
+  const logo = card.getAttribute("data-logo");
+
+  if(logo){
+    card.style.setProperty("--logo-url", `url(${logo})`);
+  }
+
+});
+</script>
+
+
+</body>
+</html>
