@@ -45,7 +45,7 @@ function getZoomURL(carpeta, nombre){
   return `https://res.cloudinary.com/${cloudName}/image/upload/w_150,q_auto,f_auto/${carpeta}/${nombre}`;
 }
 
-let totalFotos =97;
+const totalFotos = parseInt(params.get("total")) || 50;
 
 let fotoActual = 1;
 let zoom = 1;
@@ -162,8 +162,17 @@ clon.remove();
 },700);
 
 }
+function preloadImagen(numero){
 
+  if(numero < 1 || numero > totalFotos) return;
 
+  const num = String(numero).padStart(3,'0');
+  const nombre = `IMG_${num}.jpg`;
+
+  const img = new Image();
+  img.src = getFull(nombre);
+
+}
 
 function crearMiniatura(i){
 
@@ -253,6 +262,11 @@ imgGrande.style.transform = "scale(1)";
 actualizarBotonZoom();
 generarMiniaturasZoom();
 document.body.focus();
+// precarga imágenes cercanas
+preloadImagen(fotoActual + 1);
+preloadImagen(fotoActual - 1);
+
+}
 
 }
 document.addEventListener("keydown",(e)=>{
