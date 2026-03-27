@@ -162,17 +162,6 @@ clon.remove();
 },700);
 
 }
-function preloadImagen(numero){
-
-  if(numero < 1 || numero > totalFotos) return;
-
-  const num = String(numero).padStart(3,'0');
-  const nombre = `IMG_${num}.jpg`;
-
-  const img = new Image();
-  img.src = getFull(nombre);
-
-}
 
 function crearMiniatura(i){
 
@@ -243,6 +232,18 @@ cargarFotos();
 
 });
 
+function preloadImagen(numero){
+
+  if(numero < 1 || numero > totalFotos) return;
+
+  const num = String(numero).padStart(3,'0');
+  const nombre = `IMG_${num}.jpg`;
+
+  const img = new Image();
+  img.src = getFull(nombre);
+
+}
+
 
 
 function abrirModal(numero){
@@ -268,7 +269,7 @@ preloadImagen(fotoActual - 1);
 
 }
 
-}
+
 document.addEventListener("keydown",(e)=>{
 
 // solo si el visor está abierto
